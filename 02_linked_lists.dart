@@ -1,3 +1,11 @@
+// push O(1)
+// append O(1)
+// insertAfter O(1)
+// nodeAt O(i)
+
+// pop O(1)
+// removeLast O(n)
+// removeAfter O(1)
 class Node<T> {
   Node({required this.value, this.next});
 
