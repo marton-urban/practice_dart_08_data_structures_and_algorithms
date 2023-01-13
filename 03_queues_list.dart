@@ -1,3 +1,6 @@
+// enqueue O(1), worst case: O(n)
+// dequeue O(n), worst case: O(n)
+
 abstract class Queue<E> {
   bool enqueue(E element);
   E? dequeue();
@@ -15,6 +18,8 @@ class QueueList<E> implements Queue<E> {
   }
 
   @override
+  // a linear-time operation because it requires all the remaining elements
+  // in the list to be shifted in memory
   E? dequeue() => (isEmpty) ? null : _list.removeAt(0);
 
   @override
