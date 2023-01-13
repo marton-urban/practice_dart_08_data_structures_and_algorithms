@@ -1,3 +1,6 @@
+// enqueue O(1), worst case: O(1)
+// dequeue O(1), worst case: O(1)
+
 class Node<T> {
   Node({required this.value, this.next});
 
