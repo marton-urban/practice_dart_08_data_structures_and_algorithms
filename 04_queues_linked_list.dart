@@ -7,7 +7,7 @@ class Node<T> {
   @override
   String toString() {
     if (next == null) return '$value';
-    return '$value -> ${next.toString()}';
+    return '$value, ${next.toString()}';
   }
 }
 
@@ -45,7 +45,7 @@ class QueueLinkedList<E> {
 
   @override
   String toString() {
-    if (isEmpty) return 'Empty queeu';
+    if (isEmpty) return 'Empty queue';
     return head.toString();
   }
 }
