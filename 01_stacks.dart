@@ -1,3 +1,4 @@
+// push and pop are both constant-time operations
 class Stack<E> {
   Stack() : _storage = <E>[];
   Stack.of(Iterable<E> elements) : _storage = List<E>.of(elements);
