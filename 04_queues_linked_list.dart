@@ -14,7 +14,14 @@ class Node<T> {
   }
 }
 
-class QueueLinkedList<E> {
+abstract class Queue<E> {
+  bool enqueue(E element);
+  E? dequeue();
+  bool get isEmpty;
+  E? get peek;
+}
+
+class QueueLinkedList<E> implements Queue<E> {
   Node<E>? head;
   Node<E>? tail;
 
@@ -24,16 +31,19 @@ class QueueLinkedList<E> {
   }
 
   // =append
-  void enqueue(E value) {
+  @override
+  bool enqueue(E value) {
     if (isEmpty) {
       push(value);
-      return;
+    } else {
+      tail!.next = Node(value: value);
+      tail = tail!.next;
     }
-    tail!.next = Node(value: value);
-    tail = tail!.next;
+    return true;
   }
 
   // =pop
+  @override
   E? dequeue() {
     final value = head?.value;
     head = head?.next;
@@ -43,8 +53,10 @@ class QueueLinkedList<E> {
     return value;
   }
 
+  @override
   bool get isEmpty => head == null;
-  void get peek => print(head?.value);
+  @override
+  E? get peek => head?.value;
 
   @override
   String toString() {
@@ -63,6 +75,6 @@ void main() {
   queue.dequeue();
   print(queue);
 
-  queue.peek;
+  print(queue.peek);
   print(queue);
 }
