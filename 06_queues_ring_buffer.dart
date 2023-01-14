@@ -103,6 +103,30 @@ void enqueueDequeueExample() {
   print(queue);
 }
 
+extension BoardGameManager<E> on QueueRingBuffer<E> {
+  E? nextPlayer() {
+    final person = dequeue();
+    if (person != null) enqueue(person);
+    return person;
+  }
+}
+
+void challengeThree() {
+  final monopolyTurn = QueueRingBuffer<String>(4);
+  monopolyTurn.enqueue('Ray');
+  monopolyTurn.enqueue('Vicki');
+  monopolyTurn.enqueue('Luke');
+  monopolyTurn.enqueue('Pablo');
+
+  String? player;
+  for (var i = 1; i <= 20; i++) {
+    player = monopolyTurn.nextPlayer();
+    print(player);
+  }
+  print('$player wins!');
+}
+
 void main() {
-  enqueueDequeueExample();
+  // enqueueDequeueExample();
+  // challengeThree();
 }
