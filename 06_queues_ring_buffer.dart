@@ -89,7 +89,7 @@ class QueueRingBuffer<E> implements Queue<E> {
   String toString() => _ringBuffer.toString();
 }
 
-void main() {
+void enqueueDequeueExample() {
   final queue = QueueRingBuffer<String>(10);
   queue.enqueue("Ray");
   queue.enqueue("Brian");
@@ -101,4 +101,8 @@ void main() {
 
   queue.peek;
   print(queue);
+}
+
+void main() {
+  enqueueDequeueExample();
 }
