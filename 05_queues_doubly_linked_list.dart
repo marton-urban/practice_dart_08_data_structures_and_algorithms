@@ -5,6 +5,12 @@
 // linked_list version, but here we could have used push() and removeLast()
 // with the same time complexity, while in linked_list removeLast would be O(n)
 
+// The main weakness with QueueLinkedList is not apparent from the table. Despite
+// O(1) performance, it suffers from high overhead. Each element has to have extra
+// storage for the forward and back references. Moreover, every time you create a new
+// element, it requires a relatively expensive dynamic allocation of memory for the new
+// node. By contrast, QueueList does bulk allocation, which is faster.
+
 class Node<T> {
   Node({required this.value, this.next, this.previous});
   T value;
@@ -162,4 +168,18 @@ class QueueLinkedList<E> implements Queue<E> {
 
   @override
   String toString() => _list.toString();
+}
+
+void main() {
+  final queue = QueueLinkedList<String>();
+  queue.enqueue('Ray');
+  queue.enqueue('Brian');
+  queue.enqueue('Eric');
+  print(queue);
+
+  queue.dequeue();
+  print(queue);
+
+  print(queue.peek);
+  print(queue);
 }
