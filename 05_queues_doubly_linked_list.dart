@@ -170,7 +170,7 @@ class QueueLinkedList<E> implements Queue<E> {
   String toString() => _list.toString();
 }
 
-void main() {
+void enqueueDequeueExample() {
   final queue = QueueLinkedList<String>();
   queue.enqueue('Ray');
   queue.enqueue('Brian');
@@ -182,4 +182,8 @@ void main() {
 
   print(queue.peek);
   print(queue);
+}
+
+void main() {
+  enqueueDequeueExample();
 }
