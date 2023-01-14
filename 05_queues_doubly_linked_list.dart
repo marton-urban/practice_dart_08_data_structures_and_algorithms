@@ -1,5 +1,9 @@
-// Copyright (c) 2022 Razeware LLC
-// For full license & permission details, see LICENSE.
+// enqueue O(1), worst case: O(1)
+// dequeue O(1), worst case: O(1)
+
+// enqueue here uses append() and dequeue uses pop() just like in the
+// linked_list version, but here we could have used push() and removeLast()
+// with the same time complexity, while in linked_list removeLast would be O(n)
 
 class Node<T> {
   Node({required this.value, this.next, this.previous});

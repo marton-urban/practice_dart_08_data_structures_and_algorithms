@@ -31,10 +31,10 @@ class LinkedList<E> extends Iterable<E> {
   void append(E value) {
     if (isEmpty) {
       push(value);
-      return;
+    } else {
+      tail!.next = Node(value: value);
+      tail = tail!.next;
     }
-    tail!.next = Node(value: value);
-    tail = tail!.next;
   }
 
   Node<E>? nodeAt(int index) {
