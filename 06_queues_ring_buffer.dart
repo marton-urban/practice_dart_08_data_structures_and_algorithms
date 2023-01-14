@@ -89,7 +89,7 @@ class QueueRingBuffer<E> implements Queue<E> {
   String toString() => _ringBuffer.toString();
 }
 
-void main() {
+void enqueueDequeueExample() {
   final queue = QueueRingBuffer<String>(10);
   queue.enqueue("Ray");
   queue.enqueue("Brian");
@@ -101,4 +101,32 @@ void main() {
 
   queue.peek;
   print(queue);
+}
+
+extension BoardGameManager<E> on QueueRingBuffer<E> {
+  E? nextPlayer() {
+    final person = dequeue();
+    if (person != null) enqueue(person);
+    return person;
+  }
+}
+
+void challengeThree() {
+  final monopolyTurn = QueueRingBuffer<String>(4);
+  monopolyTurn.enqueue('Ray');
+  monopolyTurn.enqueue('Vicki');
+  monopolyTurn.enqueue('Luke');
+  monopolyTurn.enqueue('Pablo');
+
+  String? player;
+  for (var i = 1; i <= 20; i++) {
+    player = monopolyTurn.nextPlayer();
+    print(player);
+  }
+  print('$player wins!');
+}
+
+void main() {
+  // enqueueDequeueExample();
+  // challengeThree();
 }
