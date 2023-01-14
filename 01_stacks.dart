@@ -1,3 +1,5 @@
+// Stacks are LIFO, Queues are FIFO operations.
+
 // push and pop are both constant-time operations
 class Stack<E> {
   Stack() : _storage = <E>[];

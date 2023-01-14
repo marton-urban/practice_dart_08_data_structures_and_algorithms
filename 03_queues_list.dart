@@ -1,3 +1,4 @@
+// Stacks are LIFO, Queues are FIFO operations.
 // enqueue O(1), worst case: O(n)
 // dequeue O(n), worst case: O(n)
 
