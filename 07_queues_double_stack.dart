@@ -54,7 +54,7 @@ class QueueStack<E> implements Queue<E> {
   }
 }
 
-void enqueueDequeueExample() {
+void main() {
   final queue = QueueStack<String>();
   queue.enqueue("Ray");
   queue.enqueue("Brian");
@@ -66,8 +66,4 @@ void enqueueDequeueExample() {
 
   queue.peek;
   print(queue);
-}
-
-void main() {
-  enqueueDequeueExample();
 }
