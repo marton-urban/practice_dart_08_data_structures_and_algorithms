@@ -281,7 +281,8 @@ void challengeThree() {
 /// Challenge 4: Remove all occurrences
 extension RemovableLinkedList<E> on LinkedList {
   void removeAll(E value) {
-    while (head?.value == value) {
+    while (head != null && head!.value == value) {
+      // my solution was: (head?.value == value), but list.removeAll(null) won't work on empty list
       head = head!.next;
     }
     var previous = head;
