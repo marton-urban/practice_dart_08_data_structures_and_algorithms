@@ -283,6 +283,7 @@ extension RemovableLinkedList<E> on LinkedList {
   void removeAll(E value) {
     while (head != null && head!.value == value) {
       // my solution was: (head?.value == value), but list.removeAll(null) won't work on empty list
+      // because head?.value would evaulate to null and the while loop would begin (null == null)
       head = head!.next;
     }
     var previous = head;
